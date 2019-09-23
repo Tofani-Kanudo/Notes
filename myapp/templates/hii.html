@@ -1,0 +1,33 @@
+<html>
+<head >
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<title>Hello!!</title>
+</head>
+<body align="center">
+	<div class="container">
+	<h1><div> Welcome to your Notes</div></h1>
+	<ul>
+{% for todo_item in all_items %}
+<li align="left">{{todo_item.content}}
+<form action="/deleteTodo/{{todo_item.id}}/" method="post"><div class="form-group">{% csrf_token %}
+	<input type="submit" class="btn btn-danger"value="Delete Note"/>
+</li>
+{% endfor %}
+</form>
+</div>
+</ul>
+<div class="container">
+<form action="/addTodo/" method="post"><div class="form-group">{% csrf_token %}
+	<input class="form-control" type="text" placeholder="Enter Note">
+	<br>
+	<input class="btn btn-success" type="submit" value="Add Note"/>
+</form>
+<p>
+<b>Overview -I have created a Django Notes web app where user can create his everyday Notes, update it, delete it, see his Notes.</b></p>
+<p>1. Created a database in postgres</p>
+<p>2. Created apt models</p>
+<p>3. Created apis to save, update, delete and see notes</p>
+<p>4. Created a user interface</p>
+</div>
+</body>
+</html>
